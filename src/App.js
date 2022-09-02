@@ -1,25 +1,26 @@
 import React from "react"
-import Joke from "./Joke"
+import Navbar from "./components/Navbar"
+import Hero from "./components/Hero"
+import Card from "./components/Card"
+import data from "./data"
 
 export default function App() {
+    const cards = data.map(item => {
+        return (
+            <Card
+                key={item.id}
+                item={item}
+            />
+        )
+    })        
+    
+            // <Hero />
     return (
         <div>
-            <Joke
-                setup="How many programmers does it take to change a light bulb?"
-                punchline="None – It’s a hardware problem" />
-            <Joke
-                setup="How did the programmer die in the shower?"
-                punchline="He read the shampoo bottle instructions: Lather. Rinse. Repeat." />
-            <Joke
-                setup="“Knock, knock.”
-“Who’s there?”
-very long pause…"
-                punchline="“Java.”" />
-            <Joke
-                setup="Programming is like sex:" punchline="One mistake and you have to support it for the rest of your life." />
-            <Joke
-                setup="Debugging:"
-                punchline="Removing the needles from the haystack." />
+            <Navbar />
+            <section className="cards-list">
+                {cards}
+            </section>
         </div>
     )
 }
